@@ -28,7 +28,7 @@ const personalInfo = {
 };
 // --- SKILLS (Updated from user's data.ts) ---
 const skills = [
-  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "React & Next.js Basics", "Tailwind CSS", "Python", "C#", "WordPress"] },
+  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "React & Next.js Basics", "TypeScript Basics", "Tailwind CSS", "Python", "C#", "WordPress"] },
   { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Wireframing", "Prototyping", "User Research", "Visual Design"] },
   { title: "Tools & Data", skills: ["Git/GitHub", "MySQL", "MSSQL", "Google Sheets", "Microsoft Excel"] }
 ];

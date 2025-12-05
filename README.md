@@ -1,6 +1,6 @@
 # Portfolio
 
-This is my personal portfolio web app built with React, TypeScript, and Vite. It demonstrates a collection of small projects and reusable UI components (product/project cards, image uploader, modals, and a spinner), plus a simple service in `services/geminiService.ts`. The code highlights TypeScript types, component composition, and basic client-side routing.
+This is my personal portfolio web app built with React, TypeScript, Vite and Tailwindcss. It demonstrates a collection of small projects and reusable UI components (product/project cards, image uploader, modals, and a spinner), plus a simple service in `services/geminiService.ts`. The code highlights TypeScript types, component composition, and basic client-side routing.
 
 Key folders and files:
 - `components/` — reusable UI components shown in the site
