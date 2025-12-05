@@ -24,7 +24,7 @@ const personalInfo = {
   github: "https://github.com/damilolaadefenwa",
   // UPDATED: User's actual LinkedIn URL
   linkedin: "https://www.linkedin.com/in/damilolamercy17",
-  about: "I am a second-year Software Development undergraduate with a passion for building digital experiences. I combine technical programming skills in C# and Python with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
+  about: "I am a Software Development undergraduate with a passion for building digital experiences. I combine technical programming and web skills in C#, Python and HTML5/CSS3 with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
 };
 // --- SKILLS (Updated from user's data.ts) ---
 const skills = [
@@ -51,7 +51,7 @@ const projects = [
     design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect" // New field for View Design
   },
   { id: 'item-finder-app', title: "Item Finder App", description: "A mobile app concept designed to help users track misplaced items using Bluetooth. Completed the full UX research phase including user journey mapping and low-fidelity wireframing.", tags: ["Figma", "UX Research", "Wireframing", "Prototyping"], link: "/projects/item-finder-app", design: "https://www.figma.com/board/W9WQEgxwJBPAMc3Zp1xxaX/Item-Finder-App-Project?node-id=0-1&t=1Do4jeJhvy8Jg7A8-1" },
-  { id: 'portfolio-v1', title: "Personal Portfolio v1", description: "My first static website built using only HTML and CSS. This project helped me master the fundamentals of layout, box model, and responsive design principles.", tags: ["HTML", "CSS", "Web Design"], link: "/projects/portfolio-v1", demo: "https://damilolaadefenwa.github.io/wdd130/wwr/" },
+  { id: 'portfolio-v1', title: "White Water Rafting", description: "My first static website built using only HTML and CSS. This project helped me master the fundamentals of layout, box model, and responsive design principles.", tags: ["HTML", "CSS", "Web Design"], link: "/projects/portfolio-v1", demo: "https://damilolaadefenwa.github.io/wdd130/wwr/" },
   { id: 'fashion-word-games', title: "Fashion Word Games", description: "A text-based puzzle game testing fashion vocabulary. Implements core Python concepts like file I/O for word lists, random selection algorithms, and user input validation.", tags: ["Python", "Algorithms", "CSV"], link: "/projects/fashion-word-games", github: "https://github.com/damilolaadefenwa" },
   { id: 'exercise-tracker', title: "Exercise Tracker", description: "A console application for logging fitness activities. Demonstrates Object-Oriented Programming (OOP) principles including inheritance and encapsulation to handle different activity types.", tags: ["C#", ".NET", "OOP", "Classes"], link: "/projects/exercise-tracker", github: "https://github.com/damilolaadefenwa" }
 ];
