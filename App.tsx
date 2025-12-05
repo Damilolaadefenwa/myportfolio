@@ -5,7 +5,8 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter,
+  // CHANGED: Use HashRouter instead of BrowserRouter for static hosting compatibility
+  HashRouter,
   Routes,
   Route,
   Link,
@@ -347,7 +348,7 @@ const HomePage: React.FC = () => {
   );
 };
 
-// 2. Project Detail Page (Placeholder to demonstrate dynamic routing)
+// 2. Project Detail Page (To demonstrate dynamic routing)
 const ProjectDetail: React.FC = () => {
   // useParams is how you extract dynamic parts of the URL, like :id
   const { id } = useParams();
@@ -428,8 +429,8 @@ const ProjectDetail: React.FC = () => {
 // 3. Main App Component (Responsible for setting up the router)
 const App: React.FC = () => {
   return (
-    // 1. BrowserRouter wraps the entire application.
-    <BrowserRouter>
+    // 1. HashRouter wraps the entire application.
+    <HashRouter>
       {/* Header should always be visible, so it is outside the Routes block */}
       <Header />
 
@@ -452,7 +453,7 @@ const App: React.FC = () => {
           </div>
         } />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
