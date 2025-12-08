@@ -8,6 +8,8 @@ export default defineConfig(({ mode }) => {
 
   return {
     // --- CRITICAL FIX FOR GITHUB PAGES ---
+    // You MUST verify that '/myportfolio/' is the EXACT name of your GitHub Repository
+    // (e.g., if your repo is 'dami-dev', this must be '/dami-dev/').
     // This tells Vite to prefix all asset paths (like /assets/image.png) 
     // with the repository name, ensuring they load correctly on GitHub Pages.
     base: '/myportfolio/',
@@ -33,3 +35,4 @@ export default defineConfig(({ mode }) => {
     }
   };
 });
+
