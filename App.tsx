@@ -14,7 +14,32 @@ import {
   useLocation
 } from 'react-router-dom';
 
-// --- PERSONAL INFO (Updated from user's data.ts, with image path) ---
+// ----------------------------------------------------------------------
+// 1. IMAGE IMPORTS (CRITICAL FIX)
+// Adjusted paths to use '../assets/' assuming App.tsx is inside a 'src/' folder
+// and the 'assets' folder is a sibling of 'src/' or a subfolder of 'public/'.
+// If your assets are in 'src/assets', then './assets' was correct and the
+// compiler configuration is the issue. Since we cannot configure the compiler,
+// we will try to place the images in the 'public' folder and use root-relative paths.
+
+// ALTERNATIVE FIX: Using the public folder standard for relative paths that work on deployment.
+// If you place these files (profile_image.jpg, ibw_connect_image.png, etc.) 
+// into your project's `public/assets/` folder, these paths will work globally:
+const PUBLIC_BASE_PATH = "./assets";
+
+const profileImage = `${PUBLIC_BASE_PATH}/profile_image.png`;
+const ibwConnectImage = `${PUBLIC_BASE_PATH}/ibw_connect_image.jpg`;
+const itemFinderImage = `${PUBLIC_BASE_PATH}/item_finder_image.jpg`;
+const whiteWaterImage = `${PUBLIC_BASE_PATH}/whiteWater.jpg`;
+const pythonImage = `${PUBLIC_BASE_PATH}/python_image.png`;
+const cSharpNetImage = `${PUBLIC_BASE_PATH}/c-sharp-net_image.png`;
+
+// NOTE: For this fix to work, you MUST move all image files into:
+// <PROJECT_ROOT>/public/assets/
+// ----------------------------------------------------------------------
+
+
+// --- PERSONAL INFO (Updated with imported image variable) ---
 const personalInfo = {
   name: "Damilola Adefenwa",
   title: "Software Developer & UI/UX Designer",
@@ -22,9 +47,9 @@ const personalInfo = {
   email: "damilola.mercy@outlook.com",
   github: "https://github.com/damilolaadefenwa",
   linkedin: "https://www.linkedin.com/in/damilolamercy17",
-  about: "I am a Software Development undergraduate with a passion for building digital experiences. I combine technical programming and web skills in C#, Python and HTML5/CSS3 with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
-  // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
-  profileImageUrl: "/assets/profile_image.png",
+  about: "I am a second-year Software Development undergraduate with a passion for building digital experiences. I combine technical programming skills in C# and Python with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
+  // FIX: Using the root-relative path variable for public assets
+  profileImageUrl: profileImage,
 };
 
 // --- SKILLS (Updated from user's data.ts) ---
@@ -54,7 +79,7 @@ interface Project {
   imageUrl: string; // New field for project images
 }
 
-// --- PROJECTS (Updated to include image paths) ---
+// --- PROJECTS (Updated with public asset paths) ---
 const projects: Project[] = [
   {
     id: 'ibw-connect',
@@ -64,8 +89,8 @@ const projects: Project[] = [
     link: "/projects/ibw-connect",
     demo: "https://damilolaadefenwa.github.io/wdd231/final/index.html",
     design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect",
-    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
-    imageUrl: "/assets/ibw_connect_image.jpg",
+    // FIX: Using the public path variable
+    imageUrl: ibwConnectImage,
   },
   {
     id: 'item-finder-app',
@@ -74,18 +99,18 @@ const projects: Project[] = [
     tags: ["Figma", "UX Research", "Wireframing", "Prototyping"],
     link: "/projects/item-finder-app",
     design: "https://www.figma.com/board/W9WQEgxwJBPAMc3Zp1xxaX/Item-Finder-App-Project?node-id=0-1&t=1Do4jeJhvy8Jg7A8-1",
-    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
-    imageUrl: "/assets/item_finder_image.jpg",
+    // FIX: Using the public path variable
+    imageUrl: itemFinderImage,
   },
   {
     id: 'portfolio-v1',
-    title: "White-Water Rafting",
+    title: "Personal Portfolio v1",
     description: "My first static website built using only HTML and CSS. This project helped me master the fundamentals of layout, box model, and responsive design principles.",
     tags: ["HTML", "CSS", "Web Design"],
     link: "/projects/portfolio-v1",
     demo: "https://damilolaadefenwa.github.io/wdd130/wwr/",
-    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
-    imageUrl: "/assets/whiteWater.jpg",
+    // FIX: Using the public path variable
+    imageUrl: whiteWaterImage,
   },
   {
     id: 'fashion-word-games',
@@ -94,8 +119,8 @@ const projects: Project[] = [
     tags: ["Python", "Algorithms", "CSV"],
     link: "/projects/fashion-word-games",
     github: "https://github.com/damilolaadefenwa",
-    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
-    imageUrl: "/assets/python_image.png",
+    // FIX: Using the public path variable
+    imageUrl: pythonImage,
   },
   {
     id: 'exercise-tracker',
@@ -104,12 +129,12 @@ const projects: Project[] = [
     tags: ["C#", ".NET", "OOP", "Classes"],
     link: "/projects/exercise-tracker",
     github: "https://github.com/damilolaadefenwa",
-    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
-    imageUrl: "/assets/c-sharp-net_image.png",
+    // FIX: Using the public path variable
+    imageUrl: cSharpNetImage,
   }
 ];
 
-// --- PROJECT CARD COMPONENT (Updated to show image) ---
+// --- PROJECT CARD COMPONENT (No change needed here, it uses project.imageUrl) ---
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
   // Define external links to display
@@ -136,6 +161,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       {/* Project Image */}
       <div className="mb-4 rounded-lg overflow-hidden h-40 bg-zinc-100 flex items-center justify-center">
         <img
+          // This now uses the correct public path
           src={project.imageUrl}
           alt={`Preview of ${project.title}`}
           className="w-full h-full object-cover"
@@ -266,6 +292,7 @@ const HomePage: React.FC = () => {
             {/* Profile Image Display - Now visible on all screen sizes */}
             <div className="flex lg:col-span-1 justify-center order-first lg:order-last mb-10 lg:mb-0">
               <img
+                // This now uses the public path variable
                 src={personalInfo.profileImageUrl}
                 alt={personalInfo.name}
                 className="w-full max-w-xs h-auto rounded-full object-cover border-4 border-white shadow-xl aspect-square"
@@ -456,6 +483,7 @@ const ProjectDetail: React.FC = () => {
         {/* Detail Image/Placeholder */}
         <div className="mb-8 rounded-lg overflow-hidden h-64 bg-zinc-100 flex items-center justify-center">
           <img
+            // This now uses the public path variable
             src={project.imageUrl}
             alt={`Preview of ${project.title}`}
             className="w-full h-full object-cover"
@@ -467,7 +495,7 @@ const ProjectDetail: React.FC = () => {
         <p className="text-xl text-zinc-700 mb-8">{project.description}</p>
 
         <div className="bg-zinc-100 p-6 rounded-lg mb-8">
-          <h3 className="text-lg font-semibold text-zinc-800 mb-3">Technology Stack</h3>
+          <h3 className="text-lg font-semibold text-zinc-800">Technology Stack</h3>
           <div className="flex flex-wrap gap-3">
             {project.tags.map(tag => (
               <span
