@@ -86,7 +86,7 @@
 //         tags: ["Python", "Algorithms", "CSV", "APIs"],
 //         links: {
 //             // Add your github link here when you have it
-//             repo: "https://github.com/damilolaadefenwa" 
+//             repo: "https://github.com/damilolaadefenwa"
 //         }
 //     },
 //     {
@@ -101,3 +101,5 @@
 //         }
 //     }
 // ];
+
+//NOTE: i have added all this file in the App.txs

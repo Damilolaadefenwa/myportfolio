@@ -34,3 +34,5 @@
 //   name: string;
 //   imageUrl: string;
 // }
+
+//NOTE: i have added all this file in the App.txs
