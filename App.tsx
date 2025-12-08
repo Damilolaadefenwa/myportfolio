@@ -22,7 +22,7 @@ const personalInfo = {
   email: "damilola.mercy@outlook.com",
   github: "https://github.com/damilolaadefenwa",
   linkedin: "https://www.linkedin.com/in/damilolamercy17",
-  about: "I am a second-year Software Development undergraduate with a passion for building digital experiences. I combine technical programming skills in C# and Python with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
+  about: "I am a Software Development undergraduate with a passion for building digital experiences. I combine technical programming and web skills in C#, Python and HTML5/CSS3 with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
   // ADDED: Profile image path
   profileImageUrl: "./assets/profile_image.png",
 };
