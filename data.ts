@@ -17,7 +17,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/damilolamercy17",
     github: "https://github.com/damilolaadefenwa",
     // FIXED PATH: Assumes profile_image.jpg is in public/assets/
-    profileImageUrl: "/assets/profile_image.jpg",
+    profileImageUrl: "./assets/profile_image.jpg",
 };
 
 export const skills: SkillCategory[] = [
@@ -78,7 +78,7 @@ export const projects: PortfolioProject[] = [
         description: "A dynamic and scalable website design project. This project highlights my ability to translate design concepts into functional web interfaces.",
         tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
         // FIXED PATH: Assumes ibw_connect_image.png is in public/assets/
-        imageUrl: "/assets/ibw_connect_image.png",
+        imageUrl: "./assets/ibw_connect_image.png",
         links: {
             demo: "https://damilolaadefenwa.github.io/wdd231/final/index.html",
             design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect"
@@ -91,7 +91,7 @@ export const projects: PortfolioProject[] = [
         description: "A mobile app concept designed to help users track misplaced items using Bluetooth. Completed the full UX research phase including user journey mapping and low-fidelity wireframing.",
         tags: ["Figma", "UX Research", "Wireframing", "Prototyping"],
         // FIXED PATH: Assumes item_finder_image.png is in public/assets/
-        imageUrl: "/assets/item_finder_image.png",
+        imageUrl: "/.assets/item_finder_image.png",
         links: {
             design: "https://www.figma.com/board/W9WQEgxwJBPAMc3Zp1xxaX/Item-Finder-App-Project?node-id=0-1&t=1Do4jeJhvy8Jg7A8-1"
         }
@@ -103,7 +103,7 @@ export const projects: PortfolioProject[] = [
         description: "My first static website built using only HTML and CSS. This project helped me master the fundamentals of layout, box model, and responsive design principles.",
         tags: ["HTML", "CSS", "Web Design"],
         // FIXED PATH: Assumes whiteWater.png is in public/assets/
-        imageUrl: "/assets/whiteWater.png",
+        imageUrl: "./assets/whiteWater.png",
         links: {
             demo: "https://damilolaadefenwa.github.io/wdd130/wwr/"
         }
@@ -115,7 +115,7 @@ export const projects: PortfolioProject[] = [
         description: "A text-based puzzle game testing fashion vocabulary. Implements core Python concepts like file I/O for word lists, random selection algorithms, and user input validation.",
         tags: ["Python", "Algorithms", "CSV", "APIs"],
         // FIXED PATH: Assumes python_image.png is in public/assets/
-        imageUrl: "/assets/python_image.png",
+        imageUrl: "./assets/python_image.png",
         links: {
             repo: "https://github.com/damilolaadefenwa"
         }
@@ -127,7 +127,7 @@ export const projects: PortfolioProject[] = [
         description: "A console application for logging fitness activities. Demonstrates Object-Oriented Programming (OOP) principles including inheritance and encapsulation to handle different activity types.",
         tags: ["C#", ".NET", "OOP", "Classes"],
         // FIXED PATH: Assumes c-sharp-net_image.png is in public/assets/
-        imageUrl: "/assets/c-sharp-net_image.png",
+        imageUrl: "./assets/c-sharp-net_image.png",
         links: {
             repo: "https://github.com/damilolaadefenwa"
         }
