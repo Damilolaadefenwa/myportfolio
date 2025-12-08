@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  // CHANGED: Use HashRouter instead of BrowserRouter for static hosting compatibility
+  // Using HashRouter for compatibility with static hosting environments
   HashRouter,
   Routes,
   Route,
@@ -14,24 +14,26 @@ import {
   useLocation
 } from 'react-router-dom';
 
-// --- PERSONAL INFO (Updated from user's data.ts) ---
+// --- PERSONAL INFO (Updated from user's data.ts, with image path) ---
 const personalInfo = {
   name: "Damilola Adefenwa",
   title: "Software Developer & UI/UX Designer",
   tagline: "Bridging the gap between functional code and intuitive design.",
-  // UPDATED: User's actual email
   email: "damilola.mercy@outlook.com",
   github: "https://github.com/damilolaadefenwa",
-  // UPDATED: User's actual LinkedIn URL
   linkedin: "https://www.linkedin.com/in/damilolamercy17",
-  about: "I am a Software Development undergraduate with a passion for building digital experiences. I combine technical programming and web skills in C#, Python and HTML5/CSS3 with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
+  about: "I am a second-year Software Development undergraduate with a passion for building digital experiences. I combine technical programming skills in C# and Python with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
+  // ADDED: Profile image path
+  profileImageUrl: "./assets/profile_image.png",
 };
+
 // --- SKILLS (Updated from user's data.ts) ---
 const skills = [
-  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "React & Next.js Basics", "TypeScript Basics", "Tailwind CSS", "Python", "C#", "WordPress"] },
+  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "React & Next.js Basics", "API Integration", "TypeScript Basics", "Tailwind CSS", "Python", "C#", "WordPress"] },
   { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Wireframing", "Prototyping", "User Research", "Visual Design"] },
   { title: "Tools & Data", skills: ["Git/GitHub", "MySQL", "MSSQL", "Google Sheets", "Microsoft Excel"] }
 ];
+
 // --- EDUCATION (Updated from user's data.ts) ---
 const education = [
   { school: "Brigham-Young University, Idaho", degree: "Bachelor of Applied Science in Software Development", year: "Exp. 2027", details: ["Major in Software Development", "Focus on Full-Stack Engineering"] },
@@ -39,41 +41,73 @@ const education = [
   { school: "Alison Online Advanced Learning Institute", degree: "CPD-UK Accredited Certificate in User Interface Design", year: "July 2025", details: ["Modules: User Research, Information Architecture, Prototyping, Design Systems"] }
 ];
 
-// --- PROJECTS (Updated to include separate demo and design links for IBW Connect) ---
-const projects = [
-  {
-    id: 'ibw-connect',
-    title: "IBW Connect",
-    description: "A dynamic and scalable website design project. This project highlights my ability to translate design concepts into functional web interfaces.",
-    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-    link: "/projects/ibw-connect",
-    demo: "https://damilolaadefenwa.github.io/wdd231/final/index.html", // New field for Live Demo
-    design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect" // New field for View Design
-  },
-  { id: 'item-finder-app', title: "Item Finder App", description: "A mobile app concept designed to help users track misplaced items using Bluetooth. Completed the full UX research phase including user journey mapping and low-fidelity wireframing.", tags: ["Figma", "UX Research", "Wireframing", "Prototyping"], link: "/projects/item-finder-app", design: "https://www.figma.com/board/W9WQEgxwJBPAMc3Zp1xxaX/Item-Finder-App-Project?node-id=0-1&t=1Do4jeJhvy8Jg7A8-1" },
-  { id: 'portfolio-v1', title: "White Water Rafting", description: "My first static website built using only HTML and CSS. This project helped me master the fundamentals of layout, box model, and responsive design principles.", tags: ["HTML", "CSS", "Web Design"], link: "/projects/portfolio-v1", demo: "https://damilolaadefenwa.github.io/wdd130/wwr/" },
-  { id: 'fashion-word-games', title: "Fashion Word Games", description: "A text-based puzzle game testing fashion vocabulary. Implements core Python concepts like file I/O for word lists, random selection algorithms, and user input validation.", tags: ["Python", "Algorithms", "CSV"], link: "/projects/fashion-word-games", github: "https://github.com/damilolaadefenwa" },
-  { id: 'exercise-tracker', title: "Exercise Tracker", description: "A console application for logging fitness activities. Demonstrates Object-Oriented Programming (OOP) principles including inheritance and encapsulation to handle different activity types.", tags: ["C#", ".NET", "OOP", "Classes"], link: "/projects/exercise-tracker", github: "https://github.com/damilolaadefenwa" }
-];
-
-// --- COMPONENTS (Original ./components/ProjectCard.jsx) ---
+// --- PROJECT INTERFACE (Updated to include imageUrl) ---
 interface Project {
   id: string;
   title: string;
   description: string;
   tags: string[];
   link: string;
-  // Update interface to support new link fields
   github?: string;
   demo?: string;
   design?: string;
+  imageUrl: string; // New field for project images
 }
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-  // Determine the button text based on the project's nature (Design vs. Code)
-  const viewDetailsText = project.tags.includes('Figma') || project.tags.includes('Adobe XD') ? "View Design →" : "View Details →";
+// --- PROJECTS (Updated to include image paths) ---
+const projects: Project[] = [
+  {
+    id: 'ibw-connect',
+    title: "IBW Connect",
+    description: "A dynamic and scalable website design project. This project highlights my ability to translate design concepts into functional web interfaces.",
+    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    link: "/projects/ibw-connect",
+    demo: "https://damilolaadefenwa.github.io/wdd231/final/index.html",
+    design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect",
+    imageUrl: "./assets/ibw_connect_image.jpg",
+  },
+  {
+    id: 'item-finder-app',
+    title: "Item Finder App",
+    description: "A mobile app concept designed to help users track misplaced items using Bluetooth. Completed the full UX research phase including user journey mapping and low-fidelity wireframing.",
+    tags: ["Figma", "UX Research", "Wireframing", "Prototyping"],
+    link: "/projects/item-finder-app",
+    design: "https://www.figma.com/board/W9WQEgxwJBPAMc3Zp1xxaX/Item-Finder-App-Project?node-id=0-1&t=1Do4jeJhvy8Jg7A8-1",
+    imageUrl: "./assets/item_finder_image.jpg",
+  },
+  {
+    id: 'portfolio-v1',
+    title: "White-Water Rafting",
+    description: "My first static website built using only HTML and CSS. This project helped me master the fundamentals of layout, box model, and responsive design principles.",
+    tags: ["HTML", "CSS", "Web Design"],
+    link: "/projects/portfolio-v1",
+    demo: "https://damilolaadefenwa.github.io/wdd130/wwr/",
+    imageUrl: "./assets/whiteWater.jpg",
+  },
+  {
+    id: 'fashion-word-games',
+    title: "Fashion Word Games",
+    description: "A text-based puzzle game testing fashion vocabulary. Implements core Python concepts like file I/O for word lists, random selection algorithms, and user input validation.",
+    tags: ["Python", "Algorithms", "CSV"],
+    link: "/projects/fashion-word-games",
+    github: "https://github.com/damilolaadefenwa",
+    imageUrl: "./assets/python_image.png",
+  },
+  {
+    id: 'exercise-tracker',
+    title: "Exercise Tracker",
+    description: "A console application for logging fitness activities. Demonstrates Object-Oriented Programming (OOP) principles including inheritance and encapsulation to handle different activity types.",
+    tags: ["C#", ".NET", "OOP", "Classes"],
+    link: "/projects/exercise-tracker",
+    github: "https://github.com/damilolaadefenwa",
+    imageUrl: "./assets/c-sharp-net_image.png",
+  }
+];
 
-  // Define external links to display (ProjectCard displays all available links)
+// --- PROJECT CARD COMPONENT (Updated to show image) ---
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
+
+  // Define external links to display
   const externalLinks = [];
   if (project.demo) {
     externalLinks.push({ label: 'Live Demo', href: project.demo });
@@ -81,16 +115,31 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   if (project.design) {
     externalLinks.push({ label: 'View Design', href: project.design });
   }
-  // Fallback/General link (e.g., for Code projects without specific demo/design links)
   if (project.github && !project.demo && !project.design) {
     externalLinks.push({ label: 'View Code', href: project.github });
   }
 
+  // Fallback for placeholder text when image loading fails
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.onerror = null;
+    e.currentTarget.src = `https://placehold.co/400x200/e5e5e5/3f3f46?text=${project.title.replace(/\s/g, '+')}`;
+    e.currentTarget.className = "w-full h-full object-contain p-4"; // Adjust class for text placeholder
+  };
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-100 flex flex-col">
+      {/* Project Image */}
+      <div className="mb-4 rounded-lg overflow-hidden h-40 bg-zinc-100 flex items-center justify-center">
+        <img
+          src={project.imageUrl}
+          alt={`Preview of ${project.title}`}
+          className="w-full h-full object-cover"
+          onError={handleError}
+        />
+      </div>
+
       <h3 className="text-xl font-bold text-zinc-900 mb-2">{project.title}</h3>
-      <p className="text-zinc-600 mb-4 flex-grow">{project.description}</p>
+      <p className="text-zinc-600 mb-4 flex-grow text-sm">{project.description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {project.tags.map(tag => (
           <span
@@ -107,7 +156,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           to={project.link}
           className="text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors"
         >
-          {viewDetailsText}
+          View Details →
         </Link>
 
         {/* External Links */}
@@ -127,35 +176,28 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   );
 };
 
-// --- COMPONENTS (Original ./components/Header.jsx) ---
-
-// Custom hook to handle scroll navigation when navigating to a section ID on the same page
+// --- SCROLL HOOK (Ensures navigation links scroll correctly) ---
 const useScrollToSection = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // If the path is not the root ('/'), we should not try to scroll sections.
     if (location.pathname !== '/') return;
 
-    // Check if there is a hash in the URL (e.g., #about or #home)
     if (location.hash) {
-      // Find the element by removing the '#'
       const element = document.getElementById(location.hash.substring(1));
       if (element) {
-        // Use a short delay to ensure the browser has finished any route changes
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 50);
       }
     } else {
-      // If navigating to the base path '/' with no hash, scroll to the top
       window.scrollTo(0, 0);
     }
   }, [location]);
 };
 
+// --- HEADER COMPONENT ---
 const Header: React.FC = () => {
-  // FIX: Removed the leading '/' from hash links, so Link only changes the hash part
   const navItems = [
     { name: 'Home', path: '#home' },
     { name: 'About', path: '#about' },
@@ -175,9 +217,7 @@ const Header: React.FC = () => {
           <ul className="flex space-x-6">
             {navItems.map((item) => (
               <li key={item.name}>
-                {/* Use Link for all internal navigation */}
                 <Link
-                  // Linking to a hash works correctly without the leading '/' when on the same route
                   to={item.path}
                   className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors"
                 >
@@ -200,20 +240,35 @@ const Header: React.FC = () => {
 };
 
 
-// --- PAGES ---
-
 // 1. Home Page (Contains all the portfolio sections)
 const HomePage: React.FC = () => {
-  // This hook is called only when the HomePage component is rendered
   useScrollToSection();
+
+  // Fallback for placeholder text when image loading fails
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.onerror = null;
+    e.currentTarget.src = `https://placehold.co/300x300/e5e5e5/3f3f46?text=${personalInfo.name.split(' ')[0]}`;
+    e.currentTarget.className = "w-full max-w-xs h-auto rounded-full object-contain border-4 border-white shadow-xl aspect-square p-4";
+  };
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans">
       <main className="pt-16">
-        {/* HERO SECTION */}
+        {/* HERO SECTION (Updated to include profile image) */}
         <section id="home" className="relative bg-white border-b border-zinc-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-            <div className="max-w-3xl">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+
+            {/* Profile Image Display - Now visible on all screen sizes */}
+            <div className="flex lg:col-span-1 justify-center order-first lg:order-last mb-10 lg:mb-0">
+              <img
+                src={personalInfo.profileImageUrl}
+                alt={personalInfo.name}
+                className="w-full max-w-xs h-auto rounded-full object-cover border-4 border-white shadow-xl aspect-square"
+                onError={handleError}
+              />
+            </div>
+
+            <div className="max-w-3xl lg:col-span-2">
               <span className="inline-block px-3 py-1 text-sm font-semibold tracking-wide uppercase text-blue-600 bg-blue-50 rounded-full mb-6 animate-fade-in">
                 Open to Opportunities
               </span>
@@ -226,7 +281,6 @@ const HomePage: React.FC = () => {
                 {personalInfo.tagline}
               </p>
               <div className="flex gap-4">
-                {/* Changed to hash-only link */}
                 <Link
                   to="#projects"
                   className="px-8 py-3 bg-zinc-900 text-white font-semibold rounded-lg hover:bg-zinc-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
@@ -243,6 +297,8 @@ const HomePage: React.FC = () => {
                 </a>
               </div>
             </div>
+
+
           </div>
         </section>
 
@@ -348,11 +404,9 @@ const HomePage: React.FC = () => {
   );
 };
 
-// 2. Project Detail Page (To demonstrate dynamic routing)
+// 2. Project Detail Page (Dynamic route for /projects/:id)
 const ProjectDetail: React.FC = () => {
-  // useParams is how you extract dynamic parts of the URL, like :id
   const { id } = useParams();
-  // Projects array is now using string IDs, so find matches the id
   const project = projects.find(p => p.id === id);
 
   if (!project) {
@@ -375,17 +429,35 @@ const ProjectDetail: React.FC = () => {
   if (project.design) {
     externalLinks.push({ label: 'View Design', href: project.design });
   }
-  if (project.github && !project.demo && !project.design) {
+  if (project.github) {
     externalLinks.push({ label: 'View Code', href: project.github });
   }
+
+  // Fallback for placeholder text when image loading fails
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.onerror = null;
+    e.currentTarget.src = `https://placehold.co/800x400/e5e5e5/3f3f46?text=${project.title.replace(/\s/g, '+')}`;
+    e.currentTarget.className = "w-full h-auto rounded-lg object-contain p-8";
+  };
 
 
   return (
     <div className="min-h-screen pt-32 p-8 bg-zinc-50">
       <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-2xl border border-zinc-100">
-        <Link to="/" className="text-blue-600 hover:text-blue-800 transition-colors font-medium mb-4 inline-block">
+        <Link to="/" className="text-blue-600 hover:text-blue-800 transition-colors font-medium mb-6 inline-block">
           ← Back to Portfolio
         </Link>
+
+        {/* Detail Image/Placeholder */}
+        <div className="mb-8 rounded-lg overflow-hidden h-64 bg-zinc-100 flex items-center justify-center">
+          <img
+            src={project.imageUrl}
+            alt={`Preview of ${project.title}`}
+            className="w-full h-full object-cover"
+            onError={handleError}
+          />
+        </div>
+
         <h1 className="text-4xl font-extrabold text-zinc-900 mb-4">{project.title}</h1>
         <p className="text-xl text-zinc-700 mb-8">{project.description}</p>
 
@@ -403,9 +475,8 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
 
-        <div className="text-zinc-600 space-y-4">
-          <p>This page demonstrates true multi-page navigation using `react-router-dom`.</p>
-          <p>You can view the external link(s) for this project here:</p>
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold text-zinc-800">Links</h3>
           <div className="flex gap-6 mt-4">
             {externalLinks.map((linkItem) => (
               <a
@@ -413,7 +484,7 @@ const ProjectDetail: React.FC = () => {
                 href={linkItem.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-600 hover:text-blue-800 transition-colors font-medium inline-block"
+                className="text-blue-600 hover:text-blue-800 transition-colors font-medium inline-block text-base"
               >
                 {linkItem.label} →
               </a>
@@ -429,21 +500,16 @@ const ProjectDetail: React.FC = () => {
 // 3. Main App Component (Responsible for setting up the router)
 const App: React.FC = () => {
   return (
-    // 1. HashRouter wraps the entire application.
+    // HashRouter is used for routing within a single page, which is great for static portfolios.
     <HashRouter>
-      {/* Header should always be visible, so it is outside the Routes block */}
       <Header />
 
-      {/* 2. Routes define the area where components are conditionally rendered based on the URL. */}
+      {/* Routes define which page component to display based on the URL */}
       <Routes>
-        {/* Route 1: Home page (path: /). Renders HomePage component. */}
         <Route path="/" element={<HomePage />} />
-
-        {/* Route 2: Dynamic Project Detail page.
-                    The :id part is a URL parameter captured by useParams(). */}
         <Route path="/projects/:id" element={<ProjectDetail />} />
 
-        {/* Optional: A catch-all route for 404 Not Found pages */}
+        {/* 404 Catch-all */}
         <Route path="*" element={
           <div className="min-h-screen pt-32 p-8 text-center bg-zinc-50">
             <h1 className="text-3xl font-bold text-zinc-900 mb-4">404 - Page Not Found</h1>
