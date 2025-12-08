@@ -7,12 +7,11 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
   return {
-    // --- START OF CRITICAL FIX FOR GITHUB PAGES ---
-    // This sets the base public path for the build output. 
-    // For GitHub Pages, this MUST be your repository name to ensure 
-    // assets (like index.js and index.css) are loaded from the correct subdirectory.
+    // --- CRITICAL FIX FOR GITHUB PAGES ---
+    // This tells Vite to prefix all asset paths (like /assets/image.png) 
+    // with the repository name, ensuring they load correctly on GitHub Pages.
     base: '/myportfolio/',
-    // --- END OF CRITICAL FIX FOR GITHUB PAGES ---
+    // --- END OF CRITICAL FIX ---
 
     server: {
       port: 3000,
@@ -20,13 +19,13 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [react()],
 
-    // This is your original setup for exposing environment variables
+    // Setup for exposing environment variables
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
     },
 
-    // This is your original path alias setup
+    // Path alias setup
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
@@ -34,4 +33,3 @@ export default defineConfig(({ mode }) => {
     }
   };
 });
-

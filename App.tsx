@@ -23,13 +23,13 @@ const personalInfo = {
   github: "https://github.com/damilolaadefenwa",
   linkedin: "https://www.linkedin.com/in/damilolamercy17",
   about: "I am a Software Development undergraduate with a passion for building digital experiences. I combine technical programming and web skills in C#, Python and HTML5/CSS3 with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
-  // ADDED: Profile image path
-  profileImageUrl: "./assets/profile_image.png",
+  // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
+  profileImageUrl: "/assets/profile_image.png",
 };
 
 // --- SKILLS (Updated from user's data.ts) ---
 const skills = [
-  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "React & Next.js Basics", "API Integration", "TypeScript Basics", "Tailwind CSS", "Python", "C#", "WordPress"] },
+  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "React & Next.js Basics", "Tailwind CSS", "Python", "C#", "WordPress"] },
   { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Wireframing", "Prototyping", "User Research", "Visual Design"] },
   { title: "Tools & Data", skills: ["Git/GitHub", "MySQL", "MSSQL", "Google Sheets", "Microsoft Excel"] }
 ];
@@ -64,7 +64,8 @@ const projects: Project[] = [
     link: "/projects/ibw-connect",
     demo: "https://damilolaadefenwa.github.io/wdd231/final/index.html",
     design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect",
-    imageUrl: "./assets/ibw_connect_image.jpg",
+    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
+    imageUrl: "/assets/ibw_connect_image.jpg",
   },
   {
     id: 'item-finder-app',
@@ -73,7 +74,8 @@ const projects: Project[] = [
     tags: ["Figma", "UX Research", "Wireframing", "Prototyping"],
     link: "/projects/item-finder-app",
     design: "https://www.figma.com/board/W9WQEgxwJBPAMc3Zp1xxaX/Item-Finder-App-Project?node-id=0-1&t=1Do4jeJhvy8Jg7A8-1",
-    imageUrl: "./assets/item_finder_image.jpg",
+    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
+    imageUrl: "/assets/item_finder_image.jpg",
   },
   {
     id: 'portfolio-v1',
@@ -82,7 +84,8 @@ const projects: Project[] = [
     tags: ["HTML", "CSS", "Web Design"],
     link: "/projects/portfolio-v1",
     demo: "https://damilolaadefenwa.github.io/wdd130/wwr/",
-    imageUrl: "./assets/whiteWater.jpg",
+    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
+    imageUrl: "/assets/whiteWater.jpg",
   },
   {
     id: 'fashion-word-games',
@@ -91,7 +94,8 @@ const projects: Project[] = [
     tags: ["Python", "Algorithms", "CSV"],
     link: "/projects/fashion-word-games",
     github: "https://github.com/damilolaadefenwa",
-    imageUrl: "./assets/python_image.png",
+    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
+    imageUrl: "/assets/python_image.png",
   },
   {
     id: 'exercise-tracker',
@@ -100,7 +104,8 @@ const projects: Project[] = [
     tags: ["C#", ".NET", "OOP", "Classes"],
     link: "/projects/exercise-tracker",
     github: "https://github.com/damilolaadefenwa",
-    imageUrl: "./assets/c-sharp-net_image.png",
+    // FIX: Changed relative path (./assets/...) to root-relative path (/assets/...)
+    imageUrl: "/assets/c-sharp-net_image.png",
   }
 ];
 
