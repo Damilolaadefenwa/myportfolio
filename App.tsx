@@ -16,12 +16,6 @@ import {
 
 // ----------------------------------------------------------------------
 // 1. IMAGE IMPORTS (CRITICAL FIX)
-// Adjusted paths to use '../assets/' assuming App.tsx is inside a 'src/' folder
-// and the 'assets' folder is a sibling of 'src/' or a subfolder of 'public/'.
-// If your assets are in 'src/assets', then './assets' was correct and the
-// compiler configuration is the issue. Since we cannot configure the compiler,
-// we will try to place the images in the 'public' folder and use root-relative paths.
-
 // ALTERNATIVE FIX: Using the public folder standard for relative paths that work on deployment.
 // If you place these files (profile_image.jpg, ibw_connect_image.png, etc.) 
 // into your project's `public/assets/` folder, these paths will work globally:
@@ -54,9 +48,9 @@ const personalInfo = {
 
 // --- SKILLS (Updated from user's data.ts) ---
 const skills = [
-  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "React & Next.js Basics", "Tailwind CSS", "Python", "C#", "WordPress"] },
+  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "API Integration", "React & Next.js", "TypeScript", "Tailwind CSS", "Python", "C#", "SQL", "WordPress"] },
   { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Wireframing", "Prototyping", "User Research", "Visual Design"] },
-  { title: "Tools & Data", skills: ["Git/GitHub", "MySQL", "MSSQL", "Google Sheets", "Microsoft Excel"] }
+  { title: "Tools & Data", skills: ["Git/GitHub", "VScode", "MySQL", "MSSQL", "Google Sheets", "Microsoft Excel"] }
 ];
 
 // --- EDUCATION (Updated from user's data.ts) ---
@@ -85,7 +79,7 @@ const projects: Project[] = [
     id: 'ibw-connect',
     title: "IBW Connect",
     description: "A dynamic and scalable website design project. This project highlights my ability to translate design concepts into functional web interfaces.",
-    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    tags: ["HTML", "CSS", "JavaScript", "API", "Responsive Design"],
     link: "/projects/ibw-connect",
     demo: "https://damilolaadefenwa.github.io/wdd231/final/index.html",
     design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect",
@@ -104,9 +98,9 @@ const projects: Project[] = [
   },
   {
     id: 'portfolio-v1',
-    title: "Personal Portfolio v1",
+    title: "White-Water Rafting",
     description: "My first static website built using only HTML and CSS. This project helped me master the fundamentals of layout, box model, and responsive design principles.",
-    tags: ["HTML", "CSS", "Web Design"],
+    tags: ["HTML5", "CSS3", "Web Design"],
     link: "/projects/portfolio-v1",
     demo: "https://damilolaadefenwa.github.io/wdd130/wwr/",
     // FIX: Using the public path variable
