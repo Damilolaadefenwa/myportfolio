@@ -41,7 +41,7 @@ const personalInfo = {
   email: "damilola.mercy@outlook.com",
   github: "https://github.com/damilolaadefenwa",
   linkedin: "https://www.linkedin.com/in/damilolamercy17",
-  about: "I am a second-year Software Development undergraduate with a passion for building digital experiences. I combine technical programming skills in C# and Python with a strong foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
+  about: "Hi! I am a Software Development undergraduate with a passion for building digital experiences. I combine both technical programming skills and web development in C#, Python and HTML5/CSS3 with a strong robust foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
   // FIX: Using the root-relative path variable for public assets
   profileImageUrl: profileImage,
 };
@@ -49,7 +49,7 @@ const personalInfo = {
 // --- SKILLS (Updated from user's data.ts) ---
 const skills = [
   { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "API Integration", "React & Next.js", "TypeScript", "Tailwind CSS", "Python", "C#", "SQL", "WordPress"] },
-  { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Wireframing", "Prototyping", "User Research", "Visual Design"] },
+  { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Adobe Illustration", "Wireframing", "Prototyping", "User Research", "Visual Design"] },
   { title: "Tools & Data", skills: ["Git/GitHub", "VScode", "MySQL", "MSSQL", "Google Sheets", "Microsoft Excel"] }
 ];
 
@@ -79,7 +79,7 @@ const projects: Project[] = [
     id: 'ibw-connect',
     title: "IBW Connect",
     description: "A dynamic and scalable website design project. This project highlights my ability to translate design concepts into functional web interfaces.",
-    tags: ["HTML", "CSS", "JavaScript", "API", "Responsive Design"],
+    tags: ["HTML5", "CSS3", "JavaScript", "API", "Responsive Design","UI Design"],
     link: "/projects/ibw-connect",
     demo: "https://damilolaadefenwa.github.io/wdd231/final/index.html",
     design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect",
@@ -90,7 +90,7 @@ const projects: Project[] = [
     id: 'item-finder-app',
     title: "Item Finder App",
     description: "A mobile app concept designed to help users track misplaced items using Bluetooth. Completed the full UX research phase including user journey mapping and low-fidelity wireframing.",
-    tags: ["Figma", "UX Research", "Wireframing", "Prototyping"],
+    tags: ["Figma", "UX Research", "UI Design","Wireframing", "Prototyping", "Usability Testing"],
     link: "/projects/item-finder-app",
     design: "https://www.figma.com/board/W9WQEgxwJBPAMc3Zp1xxaX/Item-Finder-App-Project?node-id=0-1&t=1Do4jeJhvy8Jg7A8-1",
     // FIX: Using the public path variable
