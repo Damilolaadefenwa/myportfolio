@@ -27,6 +27,8 @@ const itemFinderImage = `${PUBLIC_BASE_PATH}/item_finder_image.jpg`;
 const whiteWaterImage = `${PUBLIC_BASE_PATH}/whiteWater.jpg`;
 const pythonImage = `${PUBLIC_BASE_PATH}/python_image.png`;
 const cSharpNetImage = `${PUBLIC_BASE_PATH}/c-sharp-net_image.png`;
+const assignTrackerImage = `${PUBLIC_BASE_PATH}/assignmenttrackers.webp`;
+const cse340motorImage = `${PUBLIC_BASE_PATH}/cse340motors.webp`;
 
 // NOTE: For this fix to work, you MUST move all image files into:
 // <PROJECT_ROOT>/public/assets/
@@ -48,9 +50,9 @@ const personalInfo = {
 
 // --- SKILLS (Updated from user's data.ts) ---
 const skills = [
-  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript", "API Integration", "React & Next.js", "TypeScript", "Tailwind CSS", "Python", "C#", "SQL", "WordPress"] },
-  { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Adobe Illustration", "Wireframing", "Prototyping", "User Research", "Visual Design"] },
-  { title: "Tools & Data", skills: ["Git/GitHub", "VScode", "MySQL", "MSSQL", "Google Sheets", "Microsoft Excel"] }
+  { title: "Programming & Web", skills: ["HTML5/CSS3", "JavaScript(Vanilla)", "API's Integration", "React/Next.js", "TypeScript", "Tailwind CSS", "Python", "PHP", "Sass/Scss", "C#", "SQL","Node.js/Express.js","WordPress", "Shopify"] },
+  { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Adobe Illustration", "Wireframing", "Prototyping", "User Research", "Visual Design", "Photoshop"] },
+  { title: "Tools & Data", skills: ["Git/GitHub", "VScode", "MySQL", "MSSQL", "PostgreSql", "Docker", "Trello/Asana", "Google Sheets", "Microsoft Office"] }
 ];
 
 // --- EDUCATION (Updated from user's data.ts) ---
@@ -76,10 +78,32 @@ interface Project {
 // --- PROJECTS (Updated with public asset paths) ---
 const projects: Project[] = [
   {
+    id: 'cse340-motors',
+    title: "CSE340 Motors",
+    description: "A backend-driven automobile inventory application built with Node.js, Express, and PostgreSQL using an MVC architecture. It showcases my ability to deliver effective inventory solutions while resolving complex data-flow and deployment challenges.",
+    tags: ["Node.js", "Express.js", "CSS", "MVC", "Backend", "MVC", "Javascript(Vanilla)"],
+    link: "/projects/cse340-motors",
+    demo: "https://cse340motors-02vv.onrender.com/",
+    github: "https://github.com/Damilolaadefenwa/cse340motors",
+    // FIX: Using the public path variable
+    imageUrl: cse340motorImage,
+  },
+  {
+    id: 'assignment-tracker-app',
+    title: "Assignment Tracker App.",
+    description: "Built with PHP, MariaDB, and Sass on an MVC architecture, this project transitions seamlessly from local XAMPP dev. to a Dockerized production environment. It features a custom script manager designed to overcome ephemeral storage limitations, effectively demonstrating my ability to engineer reliable solutions for complex deployment challenges.",
+    tags: ["Apache/PHP", "MariaDB/MySQL", "Sass(SCSS)", "MVC", "Backend", "Docker", "Composer"],
+    link: "/projects/assignment-tracker-app",
+    demo: "https://assignmenttracker-app.onrender.com/,",
+    github: "https://github.com/Damilolaadefenwa/assignmenttracker_app",
+    // FIX: Using the public path variable
+    imageUrl: assignTrackerImage,
+  },
+  {
     id: 'ibw-connect',
     title: "IBW Connect",
-    description: "A dynamic and scalable website design project. This project highlights my ability to translate design concepts into functional web interfaces.",
-    tags: ["HTML5", "CSS3", "JavaScript", "API", "Responsive Design","UI Design"],
+    description: "Designed to connect wellness businesses in Ibadan, this dynamic and scalable website demonstrates my ability to seamlessly translate creative design concepts into fully functional web interfaces.",
+    tags: ["HTML5", "CSS3", "JavaScript(Vanilla)", "Restful API's", "Responsive Design","UI Design"],
     link: "/projects/ibw-connect",
     demo: "https://damilolaadefenwa.github.io/wdd231/final/index.html",
     design: "https://www.behance.net/gallery/235862275/Dynamic-Scalable-Minimalist-Design-For-IBW-Connect",
@@ -369,7 +393,7 @@ const HomePage: React.FC = () => {
               <div>
                 <h2 className="text-3xl font-bold text-zinc-900 mb-4">Featured Projects</h2>
                 <p className="text-lg text-zinc-600 max-w-2xl">
-                  A selection of my work in web development, UI/UX design, and scripting.
+                  A selection of my work in frontend and backend development, UI/UX design, and scripting.
                 </p>
               </div>
             </div>
