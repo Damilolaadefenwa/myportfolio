@@ -43,7 +43,9 @@ const personalInfo = {
   email: "damilola.mercy@outlook.com",
   github: "https://github.com/damilolaadefenwa",
   linkedin: "https://www.linkedin.com/in/damilolamercy17",
-  about: "Hi! I am a Software Development undergraduate with a passion for building digital experiences. I combine both technical programming skills and web development in C#, Python and HTML5/CSS3 with a strong robust foundation in UI/UX design. My goal is to create applications that are not only robust under the hood but also delightful to use.",
+  about1: "Hi! I am Damilola, a web developer and UI/UX designer currently completing my Software Development degree. I bring a unique perspective to tech, backed by a successful decade-long career as a Technical Fashion Designer and experience as a Data Entry Specialist. My background taught me that great design relies on precision, structure, and a deep understanding of the end-user.",
+  about2: "Today, I combine my established passion for design and functional solutions with technical programming skills in C#, Python, and HTML5/CSS3. My goal is to bridge the gap between form and function, and building digital experiences that are robust under the hood and truly delightful to use.",
+  about3: "I am currently open to new opportunities. Feel free to explore my recent work below, and let's connect on how my unique blend of design experience and technical skills can bring value to your team.",
   // FIX: Using the root-relative path variable for public assets
   profileImageUrl: profileImage,
 };
@@ -252,6 +254,7 @@ const Header: React.FC = () => {
     { name: 'About', path: '#about' },
     { name: 'Projects', path: '#projects' },
     { name: 'Education', path: '#education' },
+    { name: 'Contact', path: '#contact' },
   ];
 
   return (
@@ -358,7 +361,15 @@ const HomePage: React.FC = () => {
             <div>
               <h2 className="text-3xl font-bold text-zinc-900 mb-6">About Me</h2>
               <p className="text-lg text-zinc-600 leading-relaxed">
-                {personalInfo.about}
+                {personalInfo.about1}
+              </p>
+              <br></br>
+              <p className="text-lg text-zinc-600 leading-relaxed">
+                {personalInfo.about2}
+              </p>
+              <br></br>
+              <p className="text-lg text-zinc-600 leading-relaxed">
+                {personalInfo.about3}
               </p>
             </div>
             <div id="skills">
@@ -393,7 +404,7 @@ const HomePage: React.FC = () => {
               <div>
                 <h2 className="text-3xl font-bold text-zinc-900 mb-4">Featured Projects</h2>
                 <p className="text-lg text-zinc-600 max-w-2xl">
-                  A selection of my work in frontend and backend development, UI/UX design, and scripting.
+                  A selection of my work in Frontend and Backend web development, UI/UX design, and scripting.
                 </p>
               </div>
             </div>
@@ -434,7 +445,7 @@ const HomePage: React.FC = () => {
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-zinc-900 text-zinc-400 py-12">
+      <footer id="contact" className="bg-zinc-900 text-zinc-400 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <h4 className="text-white text-lg font-bold mb-1">{personalInfo.name}</h4>
